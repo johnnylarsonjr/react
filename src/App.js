@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 const list = [
@@ -22,27 +22,71 @@ const list = [
 ]
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      list: list,
+    };
+  }
   render() {
     return (
       <header className="App-header">
         <div className="App">
-          {list.map(function(item) {
-            return (
-              <div key={item.objectID}>
-                <span>
-                  <a href={item.url}>{item.title}</a>
-                </span>
-                <span>{item.author}</span>
-                <span>{item.num_comments}</span>
-                <span>{item.points}</span>
-              </div>
-            );
-          })}
+          {this.state.list.map(item => 
+          <div key={item.objectID}>
+            <span>
+              <a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+          </div>
+          )}
         </div>
       </header>
-    )
+    );
   }
 }
+
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <header className="App-header">
+//         <div className="App">
+//           {list.map(function(item) {
+//             return (
+//               <div key={item.objectID}>
+//                 <span>
+//                   <a href={item.url}>{item.title}</a>
+//                 </span>
+//                 <span>{item.author}</span>
+//                 <span>{item.num_comments}</span>
+//                 <span>{item.points}</span>
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </header>
+//     )
+//   }
+// }
+
+// class Developer {
+//   constructor(firstname, lastname) {
+//     this.firstname = firstname;
+//     this.lastname = lastname;
+//   }
+
+//   getName() {
+//     return this.firstname + ' ' + this.lastname;
+//   }
+// }
+
+// const robin = new Developer('Olaf', "Meister");
+// console.log(robin.getName());
+
 // function App() {
 //   return (
 //     <div className="App">
